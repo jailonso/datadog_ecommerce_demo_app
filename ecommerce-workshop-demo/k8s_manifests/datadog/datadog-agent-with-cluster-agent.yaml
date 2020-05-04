@@ -125,7 +125,7 @@ spec:
             ## Running Endpoints Checks with Autodiscovery ##
             ########################
             - name: DD_EXTRA_CONFIG_PROVIDERS
-              value: "endpointschecks"
+              value: "endpointschecks clusterchecks"
             
           ## Note these are the minimum suggested values for requests and limits.
           ## The amount of resources required by the Agent varies depending on:
