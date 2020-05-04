@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: spike-traffic 
+  name: spike-traffic
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 40
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      run: spike-traffic
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: spike-traffic 
+    spec:
+      containers:
+      - command: ["/bin/sh"]
+        args: ["-c", "while true; do wget frontend.default:80; done"]
+        image: busybox
+        name: busybox
+        resources: {}
+
+
