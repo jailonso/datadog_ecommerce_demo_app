@@ -64,7 +64,7 @@ kubectl apply -f k8s_manifests/app/
  ```
 kubectl apply -f k8s_manifests/datadog/cluster-agent-external-metrics.yaml
 ```
-9. Create SLOs with errors and latency below 7 and check latency  slos is failing.
+9. Create SLOs with errors and latency ( <7).
 
 10. Increase traffic and check if SLO latency is failing
 ```
